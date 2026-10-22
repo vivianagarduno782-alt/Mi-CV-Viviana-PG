@@ -1,0 +1,489 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV | Viviana Polo Garduño</title>
+
+  <style>
+    :root {
+      --azul-oscuro: #153e60;
+      --azul: #2878b5;
+      --azul-medio: #4d9bd1;
+      --azul-claro: #eaf5ff;
+      --fondo: #f3f8fd;
+      --texto: #304b60;
+      --borde: #d6e7f5;
+      --blanco: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.7;
+    }
+
+    .contenedor {
+      max-width: 1050px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .cv {
+      background: var(--blanco);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 12px 35px rgba(21, 62, 96, 0.12);
+    }
+
+    .encabezado {
+      background: linear-gradient(135deg, #153e60, #2878b5, #66b7e8);
+      color: white;
+      padding: 38px;
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .foto {
+      width: 165px;
+      height: 190px;
+      border: 3px solid rgba(255,255,255,0.8);
+      border-radius: 18px;
+      overflow: hidden;
+      background: #dceeff;
+    }
+
+    .foto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 8%;
+      display: block;
+    }
+
+    .encabezado h1 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .profesion {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .institucion {
+      opacity: 0.92;
+    }
+
+    .datos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .datos span {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 0.9rem;
+    }
+
+    .contenido {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 35px;
+      padding: 35px;
+    }
+
+    .seccion {
+      margin-bottom: 30px;
+    }
+
+    .seccion h2 {
+      color: var(--azul-oscuro);
+      font-size: 1.2rem;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--borde);
+    }
+
+    .seccion p {
+      margin-bottom: 10px;
+    }
+
+    .seccion ul {
+      padding-left: 20px;
+    }
+
+    .seccion li {
+      margin-bottom: 9px;
+    }
+
+    .habilidades {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .habilidades span {
+      background: var(--azul-claro);
+      color: var(--azul-oscuro);
+      border: 1px solid var(--borde);
+      border-radius: 8px;
+      padding: 6px 10px;
+      font-size: 0.88rem;
+    }
+
+    .proyecto {
+      background: #f6faff;
+      border: 1px solid var(--borde);
+      border-left: 4px solid var(--azul-medio);
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+    }
+
+    .proyecto h3 {
+      color: var(--azul);
+      font-size: 1.05rem;
+      margin-bottom: 5px;
+    }
+
+    .proyecto p {
+      margin-bottom: 0;
+    }
+
+    .pie {
+      text-align: center;
+      padding: 18px;
+      color: #6b8498;
+      background: #f8fbff;
+      border-top: 1px solid var(--borde);
+      font-size: 0.9rem;
+    }
+
+    .botones {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 25px 0;
+      flex-wrap: wrap;
+    }
+
+    .boton {
+      background: var(--azul);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .boton:hover {
+      background: var(--azul-oscuro);
+    }
+
+    @media (max-width: 700px) {
+      .contenedor {
+        margin: 15px auto;
+        padding: 0 10px;
+      }
+
+      .encabezado {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 28px 20px;
+      }
+
+      .foto {
+        margin: auto;
+      }
+
+      .encabezado h1 {
+        font-size: 2rem;
+      }
+
+      .datos {
+        justify-content: center;
+      }
+
+      .contenido {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding: 25px 20px;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+
+      .contenedor {
+        margin: 0;
+        padding: 0;
+        max-width: none;
+      }
+
+      .cv {
+        box-shadow: none;
+        border-radius: 0;
+      }
+
+      .botones {
+        display: none;
+      }
+
+      .encabezado,
+      .proyecto,
+      .habilidades span {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .seccion,
+      .proyecto {
+        break-inside: avoid;
+      }
+    }
+
+    
+/* Justificar el texto del currículum */
+.cv p,
+.cv li {
+  text-align: justify;
+}
+
+  </style>
+</head>
+
+<body>
+
+  <main class="contenedor">
+    <article class="cv">
+
+      <header class="encabezado">
+
+        <div class="foto">
+          <img
+            src="mi-fotografia.jpeg"
+            alt="Fotografía de Vivian Polo"
+          >
+        </div>
+
+        <div>
+          <h1>Viviana Polo Garduño</h1>
+
+          <p class="profesion">
+            Ingeniera Informática
+          </p>
+
+          <p class="institucion">
+            Tecnológico de Estudios Superiores de San Felipe del Progreso
+          </p>
+
+          <div class="datos">
+            <span>📍 México</span>
+            <span>💻 Tecnología e innovación</span>
+            <span>🎓 Formación académica</span>
+          </div>
+        </div>
+
+      </header>
+
+      <div class="contenido">
+
+        <!-- COLUMNA IZQUIERDA -->
+
+        <aside>
+
+          <section class="seccion">
+            <h2>Perfil profesional</h2>
+            <p>
+              Estudiante de Ingeniería Informática, actualmente en fomrcaion, interesada en el desarrollo
+              de software, el diseño web, las bases de datos y las redes de
+              computadoras. Me interesa aplicar mis conocimientos para crear
+              soluciones tecnológicas útiles, desarrollar nuevas habilidades
+              y continuar creciendo en el ámbito profesional.
+            </p>
+          </section>
+
+          
+<section class="seccion">
+  <h2>Formación académica</h2>
+
+  <p><strong>Ingeniería Informática</strong></p>
+  <p>
+    Tecnológico de Estudios Superiores de San Felipe del Progreso.
+  </p>
+  <p>Actualmente en formación académica.</p>
+
+  <p><strong>Técnico en Programación</strong></p>
+  <p>
+    CECyTEM, Plantel San José del Rincón.
+  </p>
+  <p>Periodo: 2021-2024.</p>
+</section>
+
+
+          <section class="seccion">
+            <h2>Habilidades técnicas</h2>
+            <div class="habilidades">
+              <span>Java</span>
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript básico</span>
+              <span>Astro</span>
+              <span>Tailwind CSS</span>
+              <span>SQL</span>
+              <span>MariaDB</span>
+              <span>FastAPI</span>
+              <span>Python</span>
+              <span>Visual Studio Code</span>
+              <span>UML</span>
+              <span>Redes</span>
+            </div>
+          </section>
+
+          <section class="seccion">
+            <h2>Habilidades personales</h2>
+            <ul>
+              <li>Creatividad e innovación.</li>
+              <li>Trabajo en equipo.</li>
+              <li>Organización y responsabilidad.</li>
+              <li>Resolución de problemas.</li>
+              <li>Aprendizaje continuo.</li>
+            </ul>
+          </section>
+
+          <section class="seccion">
+            <h2>Contacto</h2>
+            <p><strong>Teléfono:</strong> 7222892431</p>
+            <p><strong>Correo:</strong> vivianagarduno782@gmail.com</p>
+            <p><strong>Direccion:</strong> San José del Rincón</p>
+          </section>
+
+        </aside>
+
+        <!-- COLUMNA DERECHA -->
+
+        <div>
+
+          <section class="seccion">
+            <h2>Proyectos académicos</h2>
+
+            <article class="proyecto">
+              <h3>Tecnobike</h3>
+              <p>
+                Proyecto de emprendimiento enfocado en una bicicleta eléctrica
+                plegable para facilitar la movilidad urbana y aprovechar mejor
+                los espacios reducidos. Incluye una propuesta de comercialización
+                y desarrollo de producto.
+              </p>
+            </article>
+
+            
+<article class="proyecto">
+  <h3>Lotería Mazahua Digital con Tarjetas RFID</h3>
+  <p>
+    Proyecto tecnológico y educativo dirigido a una escuela primaria,
+    enfocado en promover el aprendizaje y la preservación de la cultura
+    mazahua mediante una lotería digital. 
+  </p>
+</article>
+
+
+            <article class="proyecto">
+              <h3>Programación en Java</h3>
+              <p>
+                Desarrollo de ejercicios y aplicaciones académicas con clases,
+                métodos, estructuras condicionales, menús y administración
+                de información de películas.
+              </p>
+            </article>
+
+            <article class="proyecto">
+              <h3>Desarrollo web</h3>
+              <p>
+                Diseño y creación de páginas web utilizando HTML, CSS,
+                herramientas de estilo y componentes para organizar
+                contenidos y mejorar la presentación visual.
+              </p>
+            </article>
+
+            <article class="proyecto">
+              <h3>Bases de datos</h3>
+              <p>
+                Prácticas de diseño y administración de bases de datos
+                relacionales, creación de tablas y consultas SQL para
+                organizar información.
+              </p>
+            </article>
+
+            <article class="proyecto">
+              <h3>API para una carpintería</h3>
+              <p>
+                Desarrollo académico de una API con FastAPI y MariaDB
+                orientada a gestionar productos, precios, materiales
+                y existencias.
+              </p>
+            </article>
+
+          </section>
+
+          <section class="seccion">
+            <h2>Intereses profesionales</h2>
+            <ul>
+              <li>Desarrollo de software y aplicaciones web.</li>
+              <li>Administración y diseño de bases de datos.</li>
+              <li>Innovación y creación de proyectos tecnológicos.</li>
+              <li>Desarrollo de soluciones para necesidades reales.</li>
+            </ul>
+          </section>
+
+          <section class="seccion">
+            <h2>Experiencia</h2>
+            <p>
+              Experiencia adquirida mediante proyectos y prácticas académicas
+              relacionadas con la programación, el desarrollo web, las bases
+              de datos y el diseño de soluciones tecnológicas.
+            </p>
+          </section>
+
+        </div>
+
+      </div>
+
+      <footer class="pie">
+        Currículum vitae · Viviana Polo Garduño · Ingeniería Informática
+      </footer>
+
+    </article>
+
+    <div class="botones">
+      <button class="boton" onclick="window.print()">
+        Imprimir o guardar como PDF
+      </button>
+    </div>
+
+  </main>
+
+</body>
+</html>
