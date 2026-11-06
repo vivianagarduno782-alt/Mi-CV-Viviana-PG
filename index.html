@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -200,6 +199,53 @@
       background: var(--azul-oscuro);
     }
 
+    /* MENÚ SUPERIOR */
+    .menu-superior {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+      background: var(--azul-oscuro);
+      box-shadow: 0 4px 14px rgba(21, 62, 96, 0.16);
+      padding: 12px 20px;
+    }
+
+    .menu-navegacion {
+      max-width: 1050px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .menu-navegacion a {
+      display: block;
+      padding: 10px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 10px;
+      color: white;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-align: center;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .menu-navegacion a:hover,
+    .menu-navegacion a:focus-visible {
+      background: var(--azul);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .menu-navegacion a.activo {
+      background: var(--azul);
+      border-color: white;
+    }
+
+    /* RESPONSIVE */
     @media (max-width: 700px) {
       .contenedor {
         margin: 15px auto;
@@ -264,36 +310,42 @@
       }
     }
 
-    
-/* Justificar el texto del currículum */
-.cv p,
-.cv li {
-  text-align: justify;
-}
-
+    /* JUSTIFICAR TEXTO */
+    .cv p,
+    .cv li {
+      text-align: justify;
+    }
   </style>
 </head>
 
 <body>
 
-  <main class="contenedor">
+  <!-- MENÚ SUPERIOR -->
+  <nav class="menu-superior" aria-label="Navegación principal">
+    <div class="menu-navegacion">
+      <a href="#cv" class="activo">Todos los ejes</a>
+      <a href="personal-social.html">Personal y social</a>
+      <a href="mis-proyectos.html">Aprendizaje y proyectos</a>
+      <a href="profesional-vocacional.html">Profesional y vocacional</a>
+    </div>
+  </nav>
+
+  <!-- CURRÍCULUM -->
+  <main class="contenedor" id="cv">
     <article class="cv">
 
       <header class="encabezado">
-
         <div class="foto">
           <img
             src="mi-fotografia.jpeg"
-            alt="Fotografía de Vivian Polo"
+            alt="Fotografía de Viviana Polo"
           >
         </div>
 
         <div>
           <h1>Viviana Polo Garduño</h1>
 
-          <p class="profesion">
-            Ingeniera Informática
-          </p>
+          <p class="profesion">Ingeniera Informática</p>
 
           <p class="institucion">
             Tecnológico de Estudios Superiores de San Felipe del Progreso
@@ -305,43 +357,38 @@
             <span>🎓 Formación académica</span>
           </div>
         </div>
-
       </header>
 
       <div class="contenido">
 
         <!-- COLUMNA IZQUIERDA -->
-
         <aside>
 
           <section class="seccion">
             <h2>Perfil profesional</h2>
             <p>
-              Estudiante de Ingeniería Informática, actualmente en fomrcaion, interesada en el desarrollo
-              de software, el diseño web, las bases de datos y las redes de
-              computadoras. Me interesa aplicar mis conocimientos para crear
-              soluciones tecnológicas útiles, desarrollar nuevas habilidades
-              y continuar creciendo en el ámbito profesional.
+              Estudiante de Ingeniería Informática, actualmente en formación,
+              interesada en el desarrollo de software, el diseño web, las bases
+              de datos y las redes de computadoras. Me interesa aplicar mis
+              conocimientos para crear soluciones tecnológicas útiles,
+              desarrollar nuevas habilidades y continuar creciendo en el
+              ámbito profesional.
             </p>
           </section>
 
-          
-<section class="seccion">
-  <h2>Formación académica</h2>
+          <section class="seccion">
+            <h2>Formación académica</h2>
 
-  <p><strong>Ingeniería Informática</strong></p>
-  <p>
-    Tecnológico de Estudios Superiores de San Felipe del Progreso.
-  </p>
-  <p>Actualmente en formación académica.</p>
+            <p><strong>Ingeniería Informática</strong></p>
+            <p>
+              Tecnológico de Estudios Superiores de San Felipe del Progreso.
+            </p>
+            <p>Actualmente en formación académica.</p>
 
-  <p><strong>Técnico en Programación</strong></p>
-  <p>
-    CECyTEM, Plantel San José del Rincón.
-  </p>
-  <p>Periodo: 2021-2024.</p>
-</section>
-
+            <p><strong>Técnico en Programación</strong></p>
+            <p>CECyTEM, Plantel San José del Rincón.</p>
+            <p>Periodo: 2021-2024.</p>
+          </section>
 
           <section class="seccion">
             <h2>Habilidades técnicas</h2>
@@ -377,38 +424,35 @@
             <h2>Contacto</h2>
             <p><strong>Teléfono:</strong> 7222892431</p>
             <p><strong>Correo:</strong> vivianagarduno782@gmail.com</p>
-            <p><strong>Direccion:</strong> San José del Rincón</p>
+            <p><strong>Dirección:</strong> San José del Rincón</p>
           </section>
 
         </aside>
 
         <!-- COLUMNA DERECHA -->
-
         <div>
 
           <section class="seccion">
             <h2>Proyectos académicos</h2>
 
             <article class="proyecto">
-              <h3>Tecnobike</h3>
+              <h3>TecnoBike</h3>
               <p>
                 Proyecto de emprendimiento enfocado en una bicicleta eléctrica
                 plegable para facilitar la movilidad urbana y aprovechar mejor
-                los espacios reducidos. Incluye una propuesta de comercialización
-                y desarrollo de producto.
+                los espacios reducidos. Incluye una propuesta de
+                comercialización y desarrollo de producto.
               </p>
             </article>
 
-            
-<article class="proyecto">
-  <h3>Lotería Mazahua Digital con Tarjetas RFID</h3>
-  <p>
-    Proyecto tecnológico y educativo dirigido a una escuela primaria,
-    enfocado en promover el aprendizaje y la preservación de la cultura
-    mazahua mediante una lotería digital. 
-  </p>
-</article>
-
+            <article class="proyecto">
+              <h3>Lotería Mazahua Digital con Tarjetas RFID</h3>
+              <p>
+                Proyecto tecnológico y educativo dirigido a una escuela
+                primaria, enfocado en promover el aprendizaje y la preservación
+                de la cultura mazahua mediante una lotería digital.
+              </p>
+            </article>
 
             <article class="proyecto">
               <h3>Programación en Java</h3>
@@ -423,8 +467,8 @@
               <h3>Desarrollo web</h3>
               <p>
                 Diseño y creación de páginas web utilizando HTML, CSS,
-                herramientas de estilo y componentes para organizar
-                contenidos y mejorar la presentación visual.
+                herramientas de estilo y componentes para organizar contenidos
+                y mejorar la presentación visual.
               </p>
             </article>
 
@@ -445,7 +489,6 @@
                 y existencias.
               </p>
             </article>
-
           </section>
 
           <section class="seccion">
@@ -468,13 +511,11 @@
           </section>
 
         </div>
-
       </div>
 
       <footer class="pie">
         Currículum vitae · Viviana Polo Garduño · Ingeniería Informática
       </footer>
-
     </article>
 
     <div class="botones">
@@ -482,7 +523,6 @@
         Imprimir o guardar como PDF
       </button>
     </div>
-
   </main>
 
 </body>
