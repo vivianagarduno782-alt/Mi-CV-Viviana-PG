@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portafolio de proyectos de software y prototipos de Viviana Polo Garduño.">
+<title>Aprendizaje y proyectos | Viviana Polo Garduño</title>
+
+<style>
+:root {
+  --navy:#153e60;
+  --blue:#2878b5;
+  --sky:#66b7e8;
+  --pale:#eaf5ff;
+  --bg:#f3f8fd;
+  --text:#304b60;
+  --border:#d6e7f5;
+  --white:#fff;
+  --green:#23775f;
+  --amber:#8a6411;
+}
+
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html { scroll-behavior:smooth; }
+
+body {
+  font-family:"Segoe UI",Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+}
+
+/* MENÚ */
+.menu {
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:var(--navy);
+  padding:12px 18px;
+  box-shadow:0 4px 14px #153e6020;
+}
+
+.nav {
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:center;
+  gap:9px;
+  flex-wrap:wrap;
+}
+
+.nav a {
+  color:white;
+  text-decoration:none;
+  border:1px solid #ffffff55;
+  border-radius:9px;
+  padding:8px 13px;
+  font-weight:650;
+  font-size:.93rem;
+}
+
+.nav a:hover,
+.nav a:focus-visible,
+.nav a.active {
+  background:var(--blue);
+  outline-offset:3px;
+}
+
+/* CONTENEDOR */
+.container {
+  max-width:1100px;
+  margin:30px auto;
+  padding:0 18px;
+}
+
+.hero {
+  padding:38px;
+  border-radius:22px;
+  color:white;
+  background:linear-gradient(135deg,var(--navy),var(--blue),var(--sky));
+  box-shadow:0 12px 30px #153e6018;
+}
+
+.eyebrow {
+  display:inline-block;
+  padding:4px 12px;
+  border:1px solid #ffffff66;
+  background:#ffffff20;
+  border-radius:30px;
+  margin-bottom:12px;
+  font-size:.9rem;
+}
+
+h1 {
+  font-size:clamp(2rem,5vw,3rem);
+  line-height:1.15;
+  margin-bottom:12px;
+}
+
+.hero p { max-width:800px; }
+
+.panel {
+  background:var(--white);
+  margin-top:22px;
+  padding:27px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  box-shadow:0 8px 24px #153e600c;
+}
+
+h2 {
+  font-size:1.55rem;
+  color:var(--navy);
+  margin-bottom:9px;
+}
+
+h3 {
+  font-size:1.15rem;
+  color:var(--blue);
+  margin-bottom:7px;
+}
+
+.muted {
+  color:#627c91;
+  font-size:.94rem;
+}
+
+/* TARJETAS */
+.cards {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+  margin-top:18px;
+}
+
+.project {
+  border:1px solid var(--border);
+  border-radius:15px;
+  overflow:hidden;
+  background:#fbfdff;
+  display:flex;
+  flex-direction:column;
+}
+
+.project-content {
+  padding:19px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  height:100%;
+}
+
+.tags {
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+}
+
+.tag {
+  font-size:.8rem;
+  font-weight:700;
+  padding:3px 9px;
+  border-radius:20px;
+  background:var(--pale);
+  color:var(--navy);
+  border:1px solid var(--border);
+}
+
+.status {
+  font-size:.82rem;
+  font-weight:750;
+  border-radius:20px;
+  padding:3px 9px;
+  display:inline-block;
+  width:fit-content;
+  background:#fff3d2;
+  color:var(--amber);
+}
+
+.status.dev {
+  background:#e7f2ff;
+  color:#205e92;
+}
+
+.status.idea {
+  background:#f1eaff;
+  color:#6543a0;
+}
+
+.facts { padding-left:20px; }
+.facts li { margin:4px 0; }
+
+/* EVIDENCIAS E IMÁGENES */
+.evidence {
+  margin-top:auto;
+  padding-top:12px;
+  border-top:1px solid var(--border);
+}
+
+.evidence-box {
+  margin-top:9px;
+  min-height:92px;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:14px;
+  border:1px dashed #9dbbd2;
+  border-radius:11px;
+  background:#f2f8fd;
+  color:#526f84;
+  font-size:.92rem;
+}
+
+.evidence-box img {
+  max-width:100%;
+  height:auto;
+  border-radius:8px;
+}
+
+.evidence-box.image-evidence {
+  display:block;
+  min-height:0;
+  padding:12px;
+}
+
+.evidence-box.image-evidence img {
+  display:block;
+  width:100%;
+  max-height:320px;
+  object-fit:contain;
+  margin:0 auto;
+  background:white;
+}
+
+.image-path-help {
+  margin-top:8px;
+  font-size:.82rem;
+  color:#627c91;
+  overflow-wrap:anywhere;
+}
+
+.note {
+  margin-top:12px;
+  padding:13px;
+  border-radius:10px;
+  background:#fff5d9;
+  border:1px solid #f0dda3;
+}
+
+/* REFLEXIÓN */
+.reflection {
+  border-left:5px solid var(--green);
+  padding:17px 19px;
+  border-radius:9px;
+  background:#e7f7f1;
+}
+
+.checklist { padding-left:22px; }
+.checklist li { margin:7px 0; }
+
+/* BOTONES */
+.actions {
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  margin:22px 0 34px;
+}
+
+.btn {
+  display:inline-block;
+  padding:10px 15px;
+  border:0;
+  border-radius:9px;
+  background:var(--blue);
+  color:white;
+  text-decoration:none;
+  font:inherit;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.btn:hover { background:var(--navy); }
+
+.footer {
+  text-align:center;
+  color:#6b8498;
+  padding:20px;
+  font-size:.9rem;
+}
+
+/* INVESTIGACIÓN */
+.activity-separator {
+  width:150px;
+  margin:30px auto 24px;
+  border:0;
+  border-top:2px solid var(--border);
+}
+
+.question-box {
+  margin-top:16px;
+  padding:17px;
+  border-left:5px solid var(--blue);
+  border-radius:10px;
+  background:var(--pale);
+  color:var(--navy);
+}
+
+.research-poster {
+  margin-top:20px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:#fbfdff;
+}
+
+.poster-header {
+  padding:22px;
+  color:white;
+  text-align:center;
+  background:linear-gradient(135deg,var(--navy),var(--blue));
+}
+
+.poster-header h3 {
+  color:white;
+  margin-bottom:5px;
+}
+
+.poster-body {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  padding:17px;
+}
+
+.poster-card {
+  padding:16px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:white;
+}
+
+.poster-card h4 {
+  margin-bottom:8px;
+  color:var(--navy);
+  font-size:1.02rem;
+}
+
+.poster-card p,
+.poster-card li { margin-bottom:7px; }
+
+.poster-card ol { padding-left:21px; }
+
+/* RESPONSIVE */
+@media(max-width:760px) {
+  .container {
+    margin:16px auto;
+    padding:0 11px;
+  }
+
+  .hero,
+  .panel { padding:21px; }
+
+  .cards,
+  .poster-body { grid-template-columns:1fr; }
+
+  .nav a {
+    font-size:.86rem;
+    padding:7px 9px;
+  }
+}
+
+/* IMPRESIÓN */
+@media print {
+  .menu,
+  .actions { display:none; }
+
+  .container {
+    max-width:none;
+    margin:0;
+  }
+
+  .hero,
+  .panel {
+    box-shadow:none;
+    break-inside:avoid;
+  }
+
+  body { background:white; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MENÚ SUPERIOR -->
+<nav class="menu" aria-label="Navegación principal">
+  <div class="nav">
+    <a href="index.html">Inicio / CV</a>
+    <a href="personal-social.html">Personal y social</a>
+    <a class="active" href="mis-proyectos.html" aria-current="page">
+      Aprendizaje y proyectos
+    </a>
+  </div>
+</nav>
+
+<main class="container">
+
+<!-- ENCABEZADO -->
+<header class="hero">
+  <span class="eyebrow">Aprendizaje y proyectos</span>
+
+  <h1>Mis proyectos de software y prototipos</h1>
+
+  <p>
+    En esta sección reúno proyectos académicos y propuestas tecnológicas
+    que he trabajado durante mi formación en Ingeniería Informática.
+    Cada ficha explica su propósito, mi participación y el estado que
+    corresponde al avance disponible.
+  </p>
+
+  <p class="muted" style="color:#eef8ff;margin-top:12px">
+    Agrega capturas propias para que la evidencia sea verificable.
+  </p>
+</header>
+
+<!-- PROYECTOS -->
+<section class="panel">
+  <h2>Mis proyectos</h2>
+
+  <p>
+    Se incluyen cuatro proyectos. Actualiza los estados cuando tengas
+    una versión, prueba o evidencia más reciente.
+  </p>
+
+  <div class="cards">
+
+    <!-- PROYECTO 1 -->
+    <article class="project">
+      <div class="project-content">
+
+        <div class="tags">
+          <span class="tag">Emprendimiento tecnológico</span>
+          <span class="tag">Diseño de producto</span>
+        </div>
+
+        <h3>1. TecnoBike: bicicleta eléctrica plegable</h3>
+
+        <span class="status idea">
+          Estado: propuesta y diseño
+        </span>
+
+        <p>
+          <strong>Propósito:</strong>
+          plantear una bicicleta que pueda plegarse para facilitar su
+          transporte y almacenamiento, con una propuesta de versión
+          con motor eléctrico.
+        </p>
+
+        <ul class="facts">
+          <li>
+            <strong>Problema:</strong>
+            transportar y guardar una bicicleta convencional puede
+            ser incómodo en espacios reducidos.
+          </li>
+
+          <li>
+            <strong>Usuarios:</strong>
+            personas que se trasladan en zonas urbanas o rurales.
+          </li>
+
+          <li>
+            <strong>Contexto:</strong>
+            proyecto académico de innovación y emprendimiento.
+          </li>
+
+          <li>
+            <strong>Mi aportación:</strong>
+            participación en la definición de la propuesta,
+            descripción de modalidades, análisis de costos y
+            preparación de la presentación.
+          </li>
+
+          <li>
+            <strong>Herramientas:</strong>
+            diseño conceptual y documentación del producto.
+            Completa las herramientas concretas que utilizaste.
+          </li>
+
+          <li>
+            <strong>Fecha:</strong>
+            2025–2026. Ajustar al periodo real de trabajo.
+          </li>
+        </ul>
+
+        <div class="evidence">
+          <strong>Evidencia verificable</strong>
+
+          <div class="evidence-box image-evidence">
+
+            <!-- CAMBIA LA RUTA DE ESTA IMAGEN -->
+            <img
+              src="tecnobike.jpeg"
+              alt="Evidencia del proyecto TecnoBike"
+              onerror="this.style.display='none';"
+            >
+
+            
+
+          </div>
+
+          <p class="muted">
+            Mejora pendiente: documentar las pruebas de plegado,
+            seguridad y funcionamiento, si se han realizado.
+          </p>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- PROYECTO 2 -->
+    <article class="project">
+      <div class="project-content">
+
+        <div class="tags">
+          <span class="tag">IoT / RFID</span>
+          <span class="tag">Prototipo educativo</span>
+        </div>
+
+        <h3>2. Lotería Mazahua digital con RFID</h3>
+
+        <span class="status dev">
+          Estado: diseño de sistema y prototipo
+        </span>
+
+        <p>
+          <strong>Propósito:</strong>
+          explorar una lotería digital que combine tarjetas RFID
+          y una interfaz gráfica para apoyar el aprendizaje y la
+          difusión de elementos de la cultura mazahua.
+        </p>
+
+        <ul class="facts">
+          <li>
+            <strong>Problema:</strong>
+            buscar una forma interactiva de presentar contenidos
+            culturales y educativos.
+          </li>
+
+          <li>
+            <strong>Usuarios:</strong>
+            estudiantes y comunidad educativa.
+          </li>
+
+          <li>
+            <strong>Contexto:</strong>
+            proyecto tecnológico-educativo.
+          </li>
+
+          <li>
+            <strong>Mi aportación:</strong>
+            trabajo en el diseño del diagrama de clases y del
+            esquema de componentes. Se planteó usar ESP32,
+            lector RFID y un botón para repetir el proceso.
+          </li>
+
+          <li>
+            <strong>Tecnologías:</strong>
+            ESP32, RFID y herramienta de diagramación o simulación.
+            Indica cuáles ya probaste físicamente.
+          </li>
+
+          <li>
+            <strong>Fecha:</strong>
+            2026. Ajustar al periodo real de desarrollo.
+          </li>
+        </ul>
+
+        <div class="evidence">
+          <strong>Evidencia verificable</strong>
+
+          <div class="evidence-box image-evidence">
+
+            <!-- CAMBIA LA RUTA DE ESTA IMAGEN -->
+            <img
+              src="loteria-mazahua.jpeg"
+              alt="Evidencia de la Lotería Mazahua digital con RFID"
+              onerror="this.style.display='none';"
+            >
+
+          
+
+          </div>
+
+          <p class="muted">
+            Mejora pendiente: comprobar la lectura de tarjetas y
+            la comunicación con la interfaz cuando se implemente.
+          </p>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- PROYECTO 3 -->
+    <article class="project">
+      <div class="project-content">
+
+        <div class="tags">
+          <span class="tag">Desarrollo web</span>
+          <span class="tag">Frontend</span>
+        </div>
+
+        <h3>3. Sitio web personal y portafolio</h3>
+
+        <span class="status dev">Estado: desarrollo</span>
+
+        <p>
+          <strong>Propósito:</strong>
+          crear un sitio web que reúna el currículum, las evidencias
+          académicas y los proyectos realizados.
+        </p>
+
+        <ul class="facts">
+          <li>
+            <strong>Problema:</strong>
+            presentar la trayectoria académica y las evidencias
+            de forma organizada y fácil de consultar.
+          </li>
+
+          <li>
+            <strong>Usuarios:</strong>
+            docentes, compañeros y personas interesadas en el
+            trabajo académico.
+          </li>
+
+          <li>
+            <strong>Contexto:</strong>
+            portafolio de aprendizaje y proyectos.
+          </li>
+
+          <li>
+            <strong>Mi aportación:</strong>
+            organización del contenido, creación de páginas HTML,
+            estilos CSS, menú de navegación y componentes interactivos.
+          </li>
+
+          <li>
+            <strong>Tecnologías:</strong>
+            HTML, CSS y JavaScript.
+          </li>
+
+          <li>
+            <strong>Fecha:</strong> 2026.
+          </li>
+        </ul>
+
+        <div class="evidence">
+          <strong>Evidencia verificable</strong>
+
+          <div class="evidence-box image-evidence">
+
+            <!-- CAMBIA LA RUTA DE ESTA IMAGEN -->
+            <img
+              src="portafolio-web.jpeg"
+              alt="Captura del sitio web personal y portafolio"
+              onerror="this.style.display='none';"
+            >
+
+            
+
+          </div>
+
+          <p class="muted">
+            Mejora pendiente: verificar enlaces, accesibilidad,
+            adaptación a celular y capturas reales.
+          </p>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- PROYECTO 4 -->
+    <article class="project">
+      <div class="project-content">
+
+        <div class="tags">
+          <span class="tag">API</span>
+          <span class="tag">Base de datos</span>
+        </div>
+
+        <h3>4. API para gestión de una carpintería</h3>
+
+        <span class="status dev">
+          Estado: desarrollo académico
+        </span>
+
+        <p>
+          <strong>Propósito:</strong>
+          desarrollar una API para organizar información relacionada
+          con productos, materiales, precios o existencias de una
+          carpintería.
+        </p>
+
+        <ul class="facts">
+          <li>
+            <strong>Problema:</strong>
+            centralizar información del negocio y facilitar
+            su consulta o administración.
+          </li>
+
+          <li>
+            <strong>Usuarios:</strong>
+            personal que administra productos y datos del negocio.
+          </li>
+
+          <li>
+            <strong>Contexto:</strong>
+            práctica de desarrollo backend y bases de datos.
+          </li>
+
+          <li>
+            <strong>Mi aportación:</strong>
+            trabajo en la configuración del proyecto y resolución
+            de problemas del entorno. Completa con los endpoints
+            y tareas que implementaste personalmente.
+          </li>
+
+          <li>
+            <strong>Tecnologías previstas:</strong>
+            FastAPI y MariaDB, según la configuración del proyecto.
+          </li>
+
+          <li>
+            <strong>Fecha:</strong> 2026.
+          </li>
+        </ul>
+
+        <div class="evidence">
+          <strong>Evidencia verificable</strong>
+
+          <div class="evidence-box image-evidence">
+
+            <!-- CAMBIA LA RUTA DE ESTA IMAGEN -->
+            <img
+              src="api-carpinteria.jpeg"
+              alt="Evidencia de la API para gestión de una carpintería"
+              onerror="this.style.display='none';"
+            >
+
+
+          </div>
+
+          <p class="muted">
+            Mejora pendiente: documentar endpoints probados y
+            adjuntar resultados reales de pruebas.
+          </p>
+        </div>
+
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- REFLEXIÓN -->
+<section class="panel">
+  <h2>Reflexión de cierre</h2>
+
+  <div class="reflection">
+    El proyecto que mejor puede demostrar mis competencias es el
+    que me permita integrar la identificación de una necesidad,
+    el diseño de una solución y su desarrollo o prototipo.
+
+    El portafolio web también muestra mi aprendizaje porque organiza
+    la información y permite navegar entre evidencias. Para mejorarlo,
+    debo documentar con capturas reales las etapas del trabajo,
+    explicar con precisión mis aportaciones, realizar pruebas con
+    usuarios y registrar los cambios que surjan de sus comentarios.
+  </div>
+</section>
+
+<hr class="activity-separator" aria-hidden="true">
+
+<!-- VOCACIÓN CIENTÍFICA -->
+<section class="panel" id="vocacion-cientifica">
+
+  <span class="tag">Segunda actividad</span>
+
+  <h2 style="margin-top:12px">
+    Vocación científica
+  </h2>
+
+  <p>
+    Esta miniinvestigación explora cómo aprovechar la inteligencia
+    artificial generativa en el aprendizaje universitario sin dejar
+    de verificar la información y reconocer sus limitaciones.
+  </p>
+
+  <div class="question-box">
+    <strong>Pregunta de investigación:</strong>
+    ¿Qué oportunidades y riesgos presenta el uso de herramientas
+    de inteligencia artificial generativa para apoyar el aprendizaje
+    de estudiantes universitarios?
+  </div>
+
+  <div class="research-poster">
+
+    <div class="poster-header">
+      <h3>Inteligencia artificial generativa en la universidad</h3>
+      <p>Oportunidades, riesgos y uso crítico de la información</p>
+    </div>
+
+    <div class="poster-body">
+
+      <article class="poster-card">
+        <h4>1. Justificación</h4>
+
+        <p>
+          Las herramientas de IA pueden ayudar a explicar conceptos,
+          generar ideas y apoyar la escritura o programación. Sin
+          embargo, también pueden producir respuestas incorrectas,
+          reproducir sesgos o presentar información sin evidencia
+          suficiente. Por eso, es importante investigar sus beneficios
+          y limitaciones.
+        </p>
+      </article>
+
+      <article class="poster-card">
+        <h4>2. Fuente académica 1</h4>
+
+        <p>
+          Zawacki-Richter, O., Marín, V. I., Bond, M., y Gouverneur, F.
+          (2019). <em>Systematic review of research on artificial
+          intelligence applications in higher education – where are
+          the educators?</em> International Journal of Educational
+          Technology in Higher Education, 16, 39.
+        </p>
+
+        <p>
+          <a href="https://doi.org/10.1186/s41239-019-0171-0"
+             target="_blank" rel="noopener noreferrer">
+            Leer artículo académico
+          </a>
+        </p>
+
+        <p>
+          <strong>Síntesis:</strong> la revisión analiza aplicaciones
+          de IA en educación superior, como predicción, evaluación,
+          personalización y tutoría inteligente. También destaca la
+          importancia de considerar los retos éticos y educativos.
+        </p>
+      </article>
+
+      <article class="poster-card">
+        <h4>3. Fuente académica 2</h4>
+
+        <p>
+          Kasneci, E., et al. (2023). <em>ChatGPT for good? On
+          opportunities and challenges of large language models
+          for education.</em> Learning and Individual Differences,
+          103, 102274.
+        </p>
+
+        <p>
+          <a href="https://doi.org/10.1016/j.lindif.2023.102274"
+             target="_blank" rel="noopener noreferrer">
+            Leer artículo académico
+          </a>
+        </p>
+
+        <p>
+          <strong>Síntesis:</strong> el artículo describe posibles
+          beneficios de los modelos de lenguaje para apoyar actividades
+          educativas, pero advierte sobre sesgos, errores y la necesidad
+          de supervisión humana y verificación de las respuestas.
+        </p>
+      </article>
+
+      <article class="poster-card">
+        <h4>4. Método propuesto</h4>
+
+        <ol>
+          <li>Leer los resúmenes, objetivos y conclusiones.</li>
+          <li>Registrar oportunidades y riesgos identificados.</li>
+          <li>Comparar las ideas principales de ambas fuentes.</li>
+          <li>Redactar una conclusión propia basada en la evidencia.</li>
+        </ol>
+      </article>
+
+      <article class="poster-card">
+        <h4>5. Hallazgo preliminar</h4>
+
+        <p>
+          Ambas fuentes muestran que la IA puede apoyar el aprendizaje,
+          pero su utilidad depende de cómo se implemente y supervise.
+          Una respuesta generada por IA no debe aceptarse automáticamente:
+          es necesario contrastarla con fuentes confiables.
+        </p>
+      </article>
+
+      <article class="poster-card">
+        <h4>6. Limitaciones y siguiente paso</h4>
+
+        <p>
+          <strong>Limitaciones:</strong> la ficha se basa en dos artículos
+          y una lectura inicial. No mide directamente los resultados de
+          estudiantes de mi institución.
+        </p>
+
+        <p>
+          <strong>Siguiente paso:</strong> leer los textos completos,
+          ampliar la búsqueda con estudios recientes y, si es posible,
+          diseñar una encuesta anónima sobre el uso académico de IA.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- REFLEXIÓN DE VOCACIÓN CIENTÍFICA -->
+<section class="panel">
+
+  <h2>Reflexión de cierre · Vocación científica</h2>
+
+  <div class="reflection">
+    Distinguiría una afirmación de una evidencia científica revisando
+    su origen y la manera en que se obtuvo. Una afirmación puede ser
+    una opinión o una idea convincente; una evidencia científica debe
+    apoyarse en métodos explícitos, datos o análisis que puedan
+    revisarse. También comprobaría quién publicó el estudio, cuáles
+    son sus limitaciones y si otras investigaciones encuentran
+    resultados similares. En temas de inteligencia artificial,
+    verificaría las respuestas con fuentes confiables.
+  </div>
+
+</section>
+
+<!-- BOTONES DE NAVEGACIÓN -->
+<div class="actions">
+
+  <a class="btn" href="index.html">
+    ← Regresar al inicio
+  </a>
+
+  <a class="btn" href="personal-social.html">
+    ← Personal y social
+  </a>
+
+  <button
+    class="btn"
+    type="button"
+    onclick="window.print()">
+    Imprimir / guardar como PDF
+  </button>
+
+  <a class="btn"
+     href="profesional-vocacional.html"
+     aria-label="Siguiente actividad pendiente">
+    Siguiente actividad →
+  </a>
+
+</div>
+
+</main>
+
+<footer class="footer">
+  Evidencia publicada en mi sitio web · Aprendizaje y proyectos
+</footer>
+
+</body>
+</html>

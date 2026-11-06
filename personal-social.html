@@ -1,0 +1,1091 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desarrollo personal y social | Mi portafolio</title>
+
+  <style>
+    :root {
+      --azul-oscuro: #153e60;
+      --azul: #2878b5;
+      --azul-medio: #4d9bd1;
+      --azul-claro: #eaf5ff;
+      --fondo: #f3f8fd;
+      --texto: #304b60;
+      --borde: #d6e7f5;
+      --verde: #23856d;
+      --verde-claro: #e7f7f1;
+      --amarillo: #fff5d9;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.7;
+    }
+
+    .menu-superior {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--azul-oscuro);
+      padding: 12px 20px;
+      box-shadow: 0 4px 14px rgba(21, 62, 96, .16);
+    }
+
+    .menu-navegacion {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .marca {
+      color: white;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .enlaces {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .enlaces a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, .3);
+      border-radius: 9px;
+      padding: 7px 12px;
+      font-size: .92rem;
+    }
+
+    .enlaces a:hover,
+    .enlaces a:focus-visible {
+      background: var(--azul);
+    }
+
+    .contenedor {
+      max-width: 1100px;
+      margin: 32px auto;
+      padding: 0 20px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #153e60, #2878b5, #66b7e8);
+      color: white;
+      border-radius: 22px;
+      padding: 38px;
+      box-shadow: 0 12px 30px rgba(21, 62, 96, .12);
+    }
+
+    .etiqueta {
+      display: inline-block;
+      background: rgba(255, 255, 255, .16);
+      border: 1px solid rgba(255, 255, 255, .3);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: .9rem;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      max-width: 760px;
+    }
+
+    .hero .nota {
+      margin-top: 14px;
+      font-size: .92rem;
+      opacity: .9;
+    }
+
+    .bloque {
+      background: white;
+      margin-top: 22px;
+      padding: 28px;
+      border-radius: 18px;
+      border: 1px solid var(--borde);
+      box-shadow: 0 8px 24px rgba(21, 62, 96, .06);
+    }
+
+    h2 {
+      color: var(--azul-oscuro);
+      font-size: 1.55rem;
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      color: var(--azul);
+      font-size: 1.1rem;
+      margin-bottom: 7px;
+    }
+
+    p {
+      margin-bottom: 8px;
+    }
+
+    .subtexto {
+      margin-bottom: 18px;
+    }
+
+    .tarjetas {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .tarjeta {
+      border: 1px solid var(--borde);
+      border-radius: 14px;
+      padding: 18px;
+      background: #f9fcff;
+    }
+
+    .numero {
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--azul-claro);
+      color: var(--azul-oscuro);
+      font-weight: 800;
+      margin-bottom: 9px;
+    }
+
+    .seleccionada {
+      border: 2px solid var(--verde);
+      background: var(--verde-claro);
+    }
+
+    .insignia {
+      display: inline-block;
+      background: #d1f0e4;
+      color: #17664f;
+      border-radius: 20px;
+      padding: 3px 9px;
+      font-size: .8rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .criterios {
+      padding-left: 22px;
+    }
+
+    .criterios li {
+      margin: 7px 0;
+    }
+
+    .mapa {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      align-items: stretch;
+      margin-top: 18px;
+    }
+
+    .mapa-centro {
+      grid-column: 1 / -1;
+      text-align: center;
+      background: var(--azul-oscuro);
+      color: white;
+      padding: 17px;
+      border-radius: 14px;
+      font-weight: 800;
+    }
+
+    .rama {
+      padding: 15px;
+      border: 1px solid var(--borde);
+      border-radius: 12px;
+      background: var(--azul-claro);
+    }
+
+    .rama strong {
+      display: block;
+      color: var(--azul-oscuro);
+      margin-bottom: 5px;
+    }
+
+    .prototipo {
+      border: 2px solid #c9dcec;
+      border-radius: 18px;
+      overflow: hidden;
+      max-width: 680px;
+      margin: 20px auto 0;
+      background: #f8fbff;
+      box-shadow: 0 8px 22px rgba(21, 62, 96, .08);
+    }
+
+    .app-barra {
+      padding: 13px 18px;
+      color: white;
+      background: var(--azul-oscuro);
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .app-cuerpo {
+      padding: 20px;
+    }
+
+    .buscador {
+      display: flex;
+      gap: 8px;
+      margin: 12px 0 16px;
+    }
+
+    .buscador input {
+      min-width: 0;
+      flex: 1;
+      border: 1px solid #b9cede;
+      border-radius: 9px;
+      padding: 11px;
+      font: inherit;
+    }
+
+    button,
+    .boton {
+      border: 0;
+      border-radius: 9px;
+      padding: 10px 14px;
+      background: var(--azul);
+      color: white;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    button:hover,
+    .boton:hover {
+      background: var(--azul-oscuro);
+    }
+
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid #f2bc42;
+      outline-offset: 2px;
+    }
+
+    .opciones-app {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .opcion-app {
+      background: white;
+      color: var(--azul-oscuro);
+      border: 1px solid var(--borde);
+      padding: 13px 8px;
+      min-height: 90px;
+    }
+
+    .opcion-app:hover,
+    .opcion-app[aria-pressed="true"] {
+      background: var(--azul-claro);
+      border-color: var(--azul);
+    }
+
+    .icono {
+      display: block;
+      font-size: 1.5rem;
+      margin-bottom: 3px;
+    }
+
+    .mensaje {
+      margin-top: 14px;
+      padding: 12px;
+      background: white;
+      border-left: 4px solid var(--azul-medio);
+      border-radius: 8px;
+      min-height: 48px;
+    }
+
+    .retro {
+      background: var(--amarillo);
+      border: 1px solid #f0dda3;
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 14px;
+    }
+
+    .formulario {
+      display: grid;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    label {
+      font-weight: 700;
+      color: var(--azul-oscuro);
+    }
+
+    textarea,
+    select {
+      width: 100%;
+      border: 1px solid #b9cede;
+      border-radius: 9px;
+      padding: 10px;
+      font: inherit;
+      background: white;
+      color: var(--texto);
+    }
+
+    .reflexion {
+      border-left: 5px solid var(--verde);
+      padding: 15px 18px;
+      background: var(--verde-claro);
+      border-radius: 8px;
+    }
+
+    .acciones {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 22px 0 35px;
+    }
+
+    /* Separador pequeño entre las dos actividades */
+    .separador-actividad {
+      border: 0;
+      border-top: 1px solid var(--borde);
+      margin: 34px auto 28px;
+      max-width: 180px;
+    }
+
+    .tabla-habitos {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      font-size: .95rem;
+    }
+
+    .tabla-habitos th,
+    .tabla-habitos td {
+      border: 1px solid var(--borde);
+      padding: 10px;
+      text-align: center;
+    }
+
+    .tabla-habitos th {
+      background: var(--azul-claro);
+      color: var(--azul-oscuro);
+    }
+
+    .tabla-habitos td:first-child,
+    .tabla-habitos th:first-child {
+      text-align: left;
+    }
+
+    .tabla-habitos input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--verde);
+      cursor: pointer;
+    }
+
+    .progreso-habitos {
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 10px;
+      background: var(--verde-claro);
+      color: #17664f;
+    }
+
+    .nota-privacidad {
+      margin-top: 12px;
+      font-size: .92rem;
+      color: #526d80;
+    }
+
+    .pie {
+      text-align: center;
+      color: #6b8498;
+      padding: 20px;
+      font-size: .9rem;
+    }
+
+    @media (max-width: 760px) {
+      .contenedor {
+        margin: 18px auto;
+        padding: 0 12px;
+      }
+
+      .hero,
+      .bloque {
+        padding: 22px;
+      }
+
+      .tarjetas,
+      .mapa,
+      .opciones-app {
+        grid-template-columns: 1fr;
+      }
+
+      .mapa-centro {
+        grid-column: auto;
+      }
+
+      .tabla-habitos {
+        font-size: .8rem;
+      }
+
+      .tabla-habitos th,
+      .tabla-habitos td {
+        padding: 6px 4px;
+      }
+
+      .opcion-app {
+        min-height: auto;
+      }
+
+      .buscador {
+        flex-direction: column;
+      }
+
+      .menu-navegacion {
+        justify-content: center;
+      }
+
+      .marca {
+        width: 100%;
+        text-align: center;
+      }
+
+      .enlaces {
+        justify-content: center;
+      }
+    }
+
+    @media print {
+      .menu-superior,
+      .acciones,
+      .formulario button {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      .contenedor {
+        margin: 0;
+        max-width: none;
+      }
+
+      .bloque,
+      .hero {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="menu-superior" aria-label="Navegación principal">
+    <div class="menu-navegacion">
+      <a class="marca" href="index.html">Mi portafolio</a>
+
+      <div class="enlaces">
+        <a href="index.html">Todos los ejes / CV</a>
+        <a href="#actividad" aria-current="page">Personal y social</a>
+        <a href="mis-proyectos.html">Aprendizaje y proyectos</a>
+        <a href="#mapa-mental">Mapa mental</a>
+        <a href="#prototipo">Prototipo</a>
+        <a href="#salud-felicidad">Salud y felicidad</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="contenedor" id="actividad">
+
+    <!-- ACTIVIDAD 1: CREATIVIDAD -->
+    <header class="hero">
+      <span class="etiqueta">Desarrollo personal y social · Creatividad</span>
+      <h1>Ideas que mejoran la vida universitaria</h1>
+
+      <p>
+        En esta actividad identifico una situación que puede mejorar en la comunidad
+        universitaria, propongo tres ideas, selecciono una con criterios claros y
+        presento un prototipo digital sencillo para explorar cómo funcionaría.
+      </p>
+
+      <p class="nota">
+        Evidencia en desarrollo: la retroalimentación debe completarse con la opinión
+        real de una persona que pruebe el prototipo.
+      </p>
+    </header>
+
+    <section class="bloque">
+      <h2>1. Problema observado</h2>
+
+      <p>
+        En una comunidad universitaria, encontrar rápidamente información sobre
+        espacios, servicios y actividades puede resultar complicado cuando los avisos
+        están dispersos o no existe un lugar único para consultarlos. Esto puede hacer
+        que las personas pierdan tiempo buscando salones, horarios o información útil.
+      </p>
+
+      <p>
+        <strong>Necesidad identificada:</strong>
+        contar con un punto digital sencillo, accesible desde el celular, donde
+        consultar información universitaria frecuente.
+      </p>
+
+      <p>
+        <strong>Personas beneficiadas:</strong>
+        estudiantes, docentes y visitantes del campus.
+      </p>
+    </section>
+
+    <section class="bloque">
+      <h2>2. Tres ideas de solución</h2>
+
+      <p class="subtexto">
+        Se comparan las alternativas según utilidad, facilidad de uso y viabilidad
+        de realizar un prototipo.
+      </p>
+
+      <div class="tarjetas">
+        <article class="tarjeta seleccionada">
+          <span class="insignia">Idea seleccionada</span>
+          <div class="numero">1</div>
+          <h3>Campus a la mano</h3>
+          <p>
+            Una página adaptable a celular con accesos rápidos a ubicaciones,
+            avisos y servicios universitarios.
+          </p>
+        </article>
+
+        <article class="tarjeta">
+          <div class="numero">2</div>
+          <h3>Muro de actividades</h3>
+          <p>
+            Un tablero digital para publicar talleres, eventos, convocatorias
+            y actividades de grupos estudiantiles.
+          </p>
+        </article>
+
+        <article class="tarjeta">
+          <div class="numero">3</div>
+          <h3>Buzón de mejoras</h3>
+          <p>
+            Un formulario para compartir sugerencias sobre espacios, servicios
+            y necesidades de la comunidad.
+          </p>
+        </article>
+      </div>
+
+      <h3 style="margin-top:22px">Criterio de selección</h3>
+
+      <p>
+        Seleccioné <strong>Campus a la mano</strong> porque reúne información de
+        consulta frecuente en un solo lugar, puede beneficiar a distintos integrantes
+        de la comunidad y permite construir un prototipo navegable sin requerir
+        sistemas complejos.
+      </p>
+
+      <ul class="criterios" style="margin-top:10px">
+        <li><strong>Utilidad:</strong> ayuda a localizar información importante.</li>
+        <li><strong>Facilidad de uso:</strong> presenta opciones directas y textos breves.</li>
+        <li><strong>Viabilidad:</strong> se puede representar con una página web adaptable.</li>
+      </ul>
+    </section>
+
+    <section class="bloque" id="mapa-mental">
+      <h2>3. Mapa mental</h2>
+
+      <p class="subtexto">
+        Este mapa resume el problema, las alternativas, la solución elegida
+        y los beneficios esperados.
+      </p>
+
+      <div class="mapa" role="img"
+           aria-label="Mapa mental de Campus a la mano con ramas de problema, ideas, solución, usuarios y beneficios">
+
+        <div class="mapa-centro">
+          Campus a la mano<br>
+          <span style="font-weight:400">
+            Mejorar el acceso a información universitaria
+          </span>
+        </div>
+
+        <div class="rama">
+          <strong>Problema</strong>
+          Avisos e información dispersos; pérdida de tiempo al buscar datos.
+        </div>
+
+        <div class="rama">
+          <strong>Tres ideas</strong>
+          Campus a la mano, muro de actividades y buzón de mejoras.
+        </div>
+
+        <div class="rama">
+          <strong>Solución elegida</strong>
+          Página web con accesos rápidos a información frecuente.
+        </div>
+
+        <div class="rama">
+          <strong>Usuarios</strong>
+          Estudiantes, docentes y visitantes.
+        </div>
+
+        <div class="rama">
+          <strong>Funciones</strong>
+          Consultar espacios, revisar avisos y conocer servicios.
+        </div>
+
+        <div class="rama">
+          <strong>Beneficios esperados</strong>
+          Ahorro de tiempo, información más clara y mejor orientación.
+        </div>
+      </div>
+    </section>
+
+    <section class="bloque" id="prototipo">
+      <h2>4. Prototipo navegable</h2>
+
+      <p class="subtexto">
+        Prueba el prototipo seleccionando una de las opciones. Es una demostración
+        visual: la información mostrada es de ejemplo y no corresponde a servicios
+        oficiales del plantel.
+      </p>
+
+      <div class="prototipo">
+        <div class="app-barra">
+          <strong>🎓 Campus a la mano</strong>
+          <span>Prototipo</span>
+        </div>
+
+        <div class="app-cuerpo">
+          <h3>¡Hola! ¿Qué necesitas encontrar?</h3>
+          <p>Consulta una opción para ver información de ejemplo.</p>
+
+          <div class="buscador">
+            <input id="busqueda" type="search"
+                   placeholder="Ej. biblioteca, horarios..."
+                   aria-label="Buscar información">
+            <button type="button" id="btnBuscar">Buscar</button>
+          </div>
+
+          <div class="opciones-app">
+            <button class="opcion-app" type="button"
+                    data-opcion="espacios" aria-pressed="false">
+              <span class="icono">📍</span>
+              Espacios
+            </button>
+
+            <button class="opcion-app" type="button"
+                    data-opcion="avisos" aria-pressed="false">
+              <span class="icono">📢</span>
+              Avisos
+            </button>
+
+            <button class="opcion-app" type="button"
+                    data-opcion="servicios" aria-pressed="false">
+              <span class="icono">🗓️</span>
+              Servicios y actividades
+            </button>
+          </div>
+
+          <div class="mensaje" id="resultado" aria-live="polite">
+            Selecciona una opción para explorar el prototipo.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bloque">
+      <h2>5. Retroalimentación de un usuario</h2>
+
+      <p>
+        Para comprobar si la propuesta se entiende y es útil, una persona de la
+        comunidad debe probar el prototipo y compartir su opinión. Registra aquí
+        sus comentarios después de realizar la prueba; no se ha supuesto ni
+        inventado una respuesta.
+      </p>
+
+      <div class="retro">
+        <strong>Prueba sugerida</strong>
+        <ol class="criterios">
+          <li>Pide a una persona que encuentre una opción en el prototipo.</li>
+          <li>Observa si entiende los botones sin ayuda.</li>
+          <li>Pregunta qué le resultó fácil y qué cambiaría.</li>
+        </ol>
+      </div>
+
+      <form class="formulario" id="formRetro">
+        <div>
+          <label for="tipoUsuario">
+            Tipo de usuario (sin escribir datos personales)
+          </label>
+
+          <select id="tipoUsuario" required>
+            <option value="">Selecciona una opción</option>
+            <option>Estudiante</option>
+            <option>Docente</option>
+            <option>Visitante</option>
+            <option>Otro integrante de la comunidad</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="comentario">
+            ¿Qué comentó la persona que probó el prototipo?
+          </label>
+          <textarea id="comentario" rows="3"
+                    placeholder="Escribe aquí su opinión real..."
+                    required></textarea>
+        </div>
+
+        <div>
+          <label for="mejora">
+            ¿Qué mejora propones a partir de esa opinión?
+          </label>
+          <textarea id="mejora" rows="3"
+                    placeholder="Describe el ajuste que realizarías..."
+                    required></textarea>
+        </div>
+
+        <button type="submit">Mostrar registro de retroalimentación</button>
+      </form>
+
+      <div class="mensaje" id="registroRetro" aria-live="polite">
+        El registro aparecerá aquí cuando completes el formulario.
+        No se envía a ningún servidor.
+      </div>
+    </section>
+
+    <section class="bloque">
+      <h2>6. Reflexión de cierre</h2>
+
+      <div class="reflexion">
+        Considero que <strong>Campus a la mano</strong> aporta valor porque busca
+        resolver una necesidad cotidiana de la comunidad universitaria: encontrar
+        información de manera sencilla. Al reunir accesos importantes en una página
+        clara y adaptable, puede ayudar a ahorrar tiempo y facilitar la orientación.
+        Además, elaborar un prototipo permite recibir opiniones antes de desarrollar
+        una versión completa, identificar mejoras y tomar en cuenta las necesidades
+        de las personas usuarias.
+      </div>
+    </section>
+
+    <!-- SEPARADOR PEQUEÑO ENTRE ACTIVIDADES -->
+    <hr class="separador-actividad" aria-hidden="true">
+
+    <!-- ACTIVIDAD 2: SALUD Y FELICIDAD -->
+    <section class="bloque" id="salud-felicidad">
+      <span class="insignia">Segunda actividad</span>
+
+      <h2>Salud y felicidad</h2>
+
+      <p class="subtexto">
+        Durante dos semanas propongo practicar hábitos sencillos para cuidar mi
+        descanso, reducir el uso de pantallas antes de dormir y dedicar unos minutos
+        al bienestar personal. La meta es realista y se puede adaptar a la rutina universitaria.
+      </p>
+
+      <div class="tarjetas">
+        <article class="tarjeta">
+          <div class="numero">1</div>
+          <h3>Meta medible</h3>
+          <p>
+            Completar al menos un hábito de bienestar al día durante 14 días,
+            procurando lograrlo en 10 de los 14 días.
+          </p>
+        </article>
+
+        <article class="tarjeta">
+          <div class="numero">2</div>
+          <h3>Descanso digital</h3>
+          <p>
+            Dejar el celular a un lado durante los últimos 20 minutos antes
+            de dormir, cuando sea posible.
+          </p>
+        </article>
+
+        <article class="tarjeta">
+          <div class="numero">3</div>
+          <h3>Bienestar</h3>
+          <p>
+            Elegir una acción breve: preparar lo necesario para el día siguiente,
+            estirarme, respirar con calma o tomar una pausa.
+          </p>
+        </article>
+      </div>
+
+      <h3 style="margin-top:22px">Calendario de hábitos · 14 días</h3>
+
+      <p>
+        Marca cada casilla cuando hayas realizado el hábito correspondiente.
+        Puedes actualizar el tablero según tu seguimiento real.
+      </p>
+
+      <div style="overflow-x:auto">
+        <table class="tabla-habitos"
+               aria-label="Tablero de seguimiento de hábitos durante catorce días">
+
+          <thead>
+            <tr>
+              <th>Día</th>
+              <th>Descanso digital</th>
+              <th>Pausa de bienestar</th>
+              <th>Preparé mi descanso</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Día 1</td>
+              <td><input type="checkbox" class="habito" aria-label="Día 1, descanso digital"></td>
+              <td><input type="checkbox" class="habito" aria-label="Día 1, pausa de bienestar"></td>
+              <td><input type="checkbox" class="habito" aria-label="Día 1, preparé mi descanso"></td>
+            </tr>
+            <tr>
+              <td>Día 2</td>
+              <td><input type="checkbox" class="habito" aria-label="Día 2, descanso digital"></td>
+              <td><input type="checkbox" class="habito" aria-label="Día 2, pausa de bienestar"></td>
+              <td><input type="checkbox" class="habito" aria-label="Día 2, preparé mi descanso"></td>
+            </tr>
+            <tr>
+              <td>Día 3</td>
+              <td><input type="checkbox" class="habito" aria-label="Día 3, descanso digital"></td>
+              <td><input type="checkbox" class="habito" aria-label="Día 3, pausa de bienestar"></td>
+              <td><input type="checkbox" class="habito" aria-label="Día 3, preparé mi descanso"></td>
+            </tr>
+            <tr>
+              <td>Día 4</td>
+              <td><input type="checkbox" class="habito" aria-label="Día 4, descanso digital"></td>
+              <td><input type="checkbox" class="habito" aria-label="Día 4, pausa de bienestar"></td>
+              <td><input type="checkbox" class="habito" aria-label="Día 4, preparé mi descanso"></td>
+            </tr>
+            <tr>
+              <td>Día 5</td>
+              <td><input type="checkbox" class="habito" aria-label="Día 5, descanso digital"></td>
+              <td><input type="checkbox" class="habito" aria-label="Día 5, pausa de bienestar"></td>
+              <td><input type="checkbox" class="habito" aria-label="Día 5, preparé mi descanso"></td>
+            </tr>
+            <tr>
+              <td>Día 6</td>
+              <td><input type="checkbox" class="habito" aria-label="Día 6, descanso digital"></td>
+              <td><input type="checkbox" class="habito" aria-label="Día 6, pausa de bienestar"></td>
+              <td><input type="checkbox" class="habito" aria-label="Día 6, preparé mi descanso"></td>
+            </tr>
+            <tr>
+              <td>Día 7</td>
+              <td><input type="checkbox" class="habito" aria-label="Día 7, descanso digital"></td>
+              <td><input type="checkbox" class="habito" aria-label="Día 7, pausa de bienestar"></td>
+              <td><input type="checkbox" class="habito" aria-label="Día 7, preparé mi descanso"></td>
+            </tr>
+            <tr>
+              <td>Día 8</td>
+              <td><input type="checkbox" class="habito" aria-label="Día 8, descanso digital"></td>
+              <td><input type="checkbox" class="habito" aria-label="Día 8, pausa de bienestar"></td>
+              <td><input type="checkbox" class="habito" aria-label="Día 8, preparé mi descanso"></td>
+            </tr>
+            <tr>
+              <td>Día 9</td>
+              <td><input type="checkbox" class="habito" aria-label="Día 9, descanso digital"></td>
+              <td><input type="checkbox" class="habito" aria-label="Día 9, pausa de bienestar"></td>
+              <td><input type="checkbox" class="habito" aria-label="Día 9, preparé mi descanso"></td>
+            </tr>
+            <tr>
+              <td>Día 10</td>
+              <td><input type="checkbox" class="habito" aria-label="Día 10, descanso digital"></td>
+              <td><input type="checkbox" class="habito" aria-label="Día 10, pausa de bienestar"></td>
+              <td><input type="checkbox" class="habito" aria-label="Día 10, preparé mi descanso"></td>
+            </tr>
+            <tr>
+              <td>Día 11</td>
+              <td><input type="checkbox" class="habito" aria-label="Día 11, descanso digital"></td>
+              <td><input type="checkbox" class="habito" aria-label="Día 11, pausa de bienestar"></td>
+              <td><input type="checkbox" class="habito" aria-label="Día 11, preparé mi descanso"></td>
+            </tr>
+            <tr>
+              <td>Día 12</td>
+              <td><input type="checkbox" class="habito" aria-label="Día 12, descanso digital"></td>
+              <td><input type="checkbox" class="habito" aria-label="Día 12, pausa de bienestar"></td>
+              <td><input type="checkbox" class="habito" aria-label="Día 12, preparé mi descanso"></td>
+            </tr>
+            <tr>
+              <td>Día 13</td>
+              <td><input type="checkbox" class="habito" aria-label="Día 13, descanso digital"></td>
+              <td><input type="checkbox" class="habito" aria-label="Día 13, pausa de bienestar"></td>
+              <td><input type="checkbox" class="habito" aria-label="Día 13, preparé mi descanso"></td>
+            </tr>
+            <tr>
+              <td>Día 14</td>
+              <td><input type="checkbox" class="habito" aria-label="Día 14, descanso digital"></td>
+              <td><input type="checkbox" class="habito" aria-label="Día 14, pausa de bienestar"></td>
+              <td><input type="checkbox" class="habito" aria-label="Día 14, preparé mi descanso"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="progreso-habitos" id="progresoHabitos" aria-live="polite">
+        Seguimiento: 0 de 14 días con al menos un hábito marcado.
+      </div>
+
+      <p class="nota-privacidad">
+        <strong>Privacidad:</strong> este tablero solo registra hábitos generales.
+        No es necesario escribir horarios íntimos, problemas personales ni información
+        de salud. Las marcas se muestran en esta página y no se envían a ningún servidor;
+        al recargar, se reinician.
+      </p>
+
+      <section class="retro" style="margin-top:20px">
+        <h3>Análisis de cambios y limitaciones</h3>
+        <p>
+          Al terminar las dos semanas, compararé cuántos días logré cumplir la meta
+          y observaré qué hábito fue más fácil de mantener. El seguimiento puede
+          ayudarme a reconocer patrones, aunque no demuestra por sí solo que mi descanso
+          haya mejorado. Las tareas escolares, los horarios y las responsabilidades
+          pueden influir en los resultados; por eso, los datos deben interpretarse
+          como una guía personal y no como una evaluación médica.
+        </p>
+      </section>
+
+      <section style="margin-top:20px">
+        <h3>Reflexión de cierre</h3>
+        <div class="reflexion">
+          Un hábito que puedo mantener en mi rutina universitaria es dejar el celular
+          durante unos minutos antes de dormir. Es una acción sencilla que puedo adaptar
+          a mis horarios y que me ayuda a cerrar el día con menos distracciones. También
+          puedo tomar pausas breves entre actividades, sin exigirme cumplir todo
+          perfectamente; lo importante es avanzar poco a poco y revisar qué funciona para mí.
+        </div>
+      </section>
+
+
+
+    <div class="acciones">
+      <a class="boton" href="index.html">← Volver al CV</a>
+      <button type="button" onclick="window.print()">Imprimir / guardar como PDF</button>
+      <a class="boton" href="mis-proyectos.html">Siguiente actividad →</a>
+    </div>
+  </main>
+
+  <footer class="pie">
+    Portafolio académico · Desarrollo personal y social
+  </footer>
+
+  <script>
+    // Seguimiento automático de los hábitos marcados.
+    const casillasHabitos = document.querySelectorAll(".habito");
+    const progresoHabitos = document.getElementById("progresoHabitos");
+
+    function actualizarProgresoHabitos() {
+      const diasCompletados = new Set();
+
+      casillasHabitos.forEach((casilla) => {
+        if (casilla.checked) {
+          const coincidencia = casilla.getAttribute("aria-label").match(/Día \d+/);
+          if (coincidencia) {
+            diasCompletados.add(coincidencia[0]);
+          }
+        }
+      });
+
+      progresoHabitos.textContent =
+        "Seguimiento: " + diasCompletados.size +
+        " de 14 días con al menos un hábito marcado.";
+    }
+
+    casillasHabitos.forEach((casilla) => {
+      casilla.addEventListener("change", actualizarProgresoHabitos);
+    });
+
+    // Contenido interactivo del prototipo Campus a la mano.
+    const resultado = document.getElementById("resultado");
+    const botones = document.querySelectorAll("[data-opcion]");
+
+    const contenidos = {
+      espacios:
+        "📍 Espacios: consulta de ejemplo de biblioteca, laboratorios, cafetería y oficinas. En una versión real se agregarían ubicaciones verificadas del plantel.",
+      avisos:
+        "📢 Avisos: espacio para consultar comunicados, fechas importantes y anuncios oficiales. En una versión real, los avisos tendrían fecha y fuente.",
+      servicios:
+        "🗓️ Servicios y actividades: sección de ejemplo para horarios de atención, talleres y eventos de la comunidad universitaria."
+    };
+
+    botones.forEach((boton) => {
+      boton.addEventListener("click", () => {
+        botones.forEach((otro) => otro.setAttribute("aria-pressed", "false"));
+        boton.setAttribute("aria-pressed", "true");
+        resultado.textContent = contenidos[boton.dataset.opcion];
+      });
+    });
+
+    document.getElementById("btnBuscar").addEventListener("click", () => {
+      const termino = document.getElementById("busqueda").value.trim();
+
+      if (!termino) {
+        resultado.textContent =
+          "Escribe una palabra para buscar, por ejemplo: biblioteca, horarios o avisos.";
+        return;
+      }
+
+      resultado.textContent =
+        "Búsqueda de demostración: «" + termino +
+        "». En una versión real, aquí aparecerían resultados verificados relacionados con tu búsqueda.";
+    });
+
+    document.getElementById("busqueda").addEventListener("keydown", (evento) => {
+      if (evento.key === "Enter") {
+        document.getElementById("btnBuscar").click();
+      }
+    });
+
+    // Registro local de la retroalimentación del prototipo.
+    document.getElementById("formRetro").addEventListener("submit", (evento) => {
+      evento.preventDefault();
+
+      const usuario = document.getElementById("tipoUsuario").value;
+      const comentario = document.getElementById("comentario").value.trim();
+      const mejora = document.getElementById("mejora").value.trim();
+
+      document.getElementById("registroRetro").textContent =
+        "Tipo de usuario: " + usuario +
+        ". Comentario registrado: " + comentario +
+        ". Mejora propuesta: " + mejora +
+        ". Este registro solo se muestra en esta página y no se guarda al recargarla.";
+    });
+  </script>
+</body>
+</html>

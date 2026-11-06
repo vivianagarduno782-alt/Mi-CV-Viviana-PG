@@ -1,0 +1,1218 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profesional y vocacional | Ética profesional</title>
+
+  <style>
+    :root {
+      --azul-oscuro: #153e60;
+      --azul: #2878b5;
+      --azul-claro: #eaf5ff;
+      --fondo: #f3f8fd;
+      --texto: #304b60;
+      --borde: #d6e7f5;
+      --blanco: #ffffff;
+      --verde: #23775f;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.7;
+    }
+
+    .menu {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--azul-oscuro);
+      padding: 12px;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      gap: 9px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 13px;
+      border: 1px solid #ffffff55;
+      border-radius: 9px;
+      font-weight: 600;
+    }
+
+    .nav a:hover,
+    .nav a.activo {
+      background: var(--azul);
+    }
+
+    .contenedor {
+      max-width: 1050px;
+      margin: 30px auto;
+      padding: 0 18px;
+    }
+
+    .hero {
+      padding: 38px;
+      color: white;
+      border-radius: 22px;
+      background: linear-gradient(
+        135deg,
+        #153e60,
+        #2878b5,
+        #66b7e8
+      );
+    }
+
+    .etiqueta {
+      display: inline-block;
+      padding: 4px 12px;
+      border: 1px solid #ffffff66;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .panel {
+      background: white;
+      margin-top: 22px;
+      padding: 27px;
+      border: 1px solid var(--borde);
+      border-radius: 18px;
+      box-shadow: 0 8px 24px #153e600c;
+    }
+
+    h2 {
+      color: var(--azul-oscuro);
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    h3 {
+      color: var(--azul);
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin-bottom: 10px;
+      text-align: justify;
+    }
+
+    .caso {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 18px;
+      align-items: center;
+      padding: 18px;
+      background: #f3f9ff;
+      border: 1px solid var(--borde);
+      border-radius: 14px;
+      margin-top: 15px;
+    }
+
+    .ilustracion {
+      display: grid;
+      place-items: center;
+      min-height: 110px;
+      border-radius: 14px;
+      background: var(--azul-claro);
+      font-size: 3rem;
+    }
+
+    .tarjetas {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .tarjeta {
+      padding: 16px;
+      border: 1px solid var(--borde);
+      background: #f8fbff;
+      border-radius: 12px;
+    }
+
+    .tarjeta strong {
+      display: block;
+      color: var(--azul-oscuro);
+      margin-bottom: 7px;
+    }
+
+    .inicio-arbol {
+      text-align: center;
+      padding: 20px;
+      background: #f8fbff;
+      border: 1px solid var(--borde);
+      border-radius: 14px;
+      margin-top: 15px;
+    }
+
+    .opciones {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 15px;
+    }
+
+    .opcion {
+      padding: 18px;
+      text-align: left;
+      border: 2px solid var(--borde);
+      border-radius: 13px;
+      background: white;
+      color: var(--texto);
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .opcion:hover,
+    .opcion:focus-visible {
+      border-color: var(--azul);
+      background: var(--azul-claro);
+    }
+
+    .opcion strong {
+      display: block;
+      color: var(--azul-oscuro);
+      margin-bottom: 7px;
+    }
+
+    .resultado {
+      margin-top: 17px;
+      padding: 18px;
+      border-left: 5px solid var(--azul);
+      border-radius: 9px;
+      background: var(--azul-claro);
+      min-height: 90px;
+    }
+
+    .principios {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .principio {
+      background: var(--azul-claro);
+      border: 1px solid var(--borde);
+      color: var(--azul-oscuro);
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: .87rem;
+      font-weight: 600;
+    }
+
+    .reflexion {
+      border-left: 5px solid var(--verde);
+      background: #e7f7f1;
+      padding: 18px;
+      border-radius: 9px;
+    }
+
+    ul {
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    /* TABLAS */
+
+    .tabla-contenedor {
+      width: 100%;
+      overflow-x: auto;
+      margin-top: 15px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 600px;
+      font-size: .94rem;
+    }
+
+    th {
+      background: var(--azul-oscuro);
+      color: white;
+      padding: 12px;
+      text-align: left;
+    }
+
+    td {
+      border: 1px solid var(--borde);
+      padding: 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    tr:nth-child(even) {
+      background: #f3f9ff;
+    }
+
+    /* SEPARADOR */
+
+    .separador-actividad {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 35px 0 25px;
+      color: var(--azul);
+      font-size: .9rem;
+      font-weight: 600;
+    }
+
+    .separador-actividad::before,
+    .separador-actividad::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--borde);
+    }
+
+    .siguiente-actividad {
+      text-align: center;
+      margin-top: 20px;
+      padding: 15px;
+      background: var(--azul-claro);
+      border-radius: 12px;
+      color: var(--azul-oscuro);
+      font-weight: 600;
+    }
+
+    .mes {
+      border-left: 4px solid var(--azul);
+      padding: 12px 16px;
+      margin-top: 14px;
+      background: #f8fbff;
+      border-radius: 0 10px 10px 0;
+    }
+
+    .mes strong {
+      color: var(--azul-oscuro);
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .datos-academicos {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .dato {
+      padding: 14px;
+      border: 1px solid var(--borde);
+      border-radius: 12px;
+      background: #f8fbff;
+    }
+
+    .dato strong {
+      display: block;
+      color: var(--azul-oscuro);
+    }
+
+    .botones {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 25px 0 35px;
+    }
+
+    .boton {
+      display: inline-block;
+      border: none;
+      border-radius: 9px;
+      padding: 11px 16px;
+      background: var(--azul);
+      color: white;
+      text-decoration: none;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .boton:hover {
+      background: var(--azul-oscuro);
+    }
+
+    .pie {
+      text-align: center;
+      padding: 20px;
+      color: #6b8498;
+      font-size: .9rem;
+    }
+
+    @media (max-width: 760px) {
+      .contenedor {
+        margin: 16px auto;
+        padding: 0 11px;
+      }
+
+      .hero,
+      .panel {
+        padding: 21px;
+      }
+
+      .caso {
+        grid-template-columns: 1fr;
+      }
+
+      .ilustracion {
+        min-height: 70px;
+      }
+
+      .tarjetas,
+      .opciones,
+      .datos-academicos {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      .menu,
+      .botones,
+      .opciones {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      .contenedor {
+        margin: 0;
+        max-width: none;
+      }
+
+      .panel,
+      .hero {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+
+      .tabla-contenedor {
+        overflow: visible;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- MENÚ PRINCIPAL -->
+
+  <nav class="menu" aria-label="Navegación principal">
+    <div class="nav">
+
+      <a href="index.html">Inicio / CV</a>
+
+      <a href="personal-social.html">
+        Personal y social
+      </a>
+
+      <a href="mis-proyectos.html">
+        Aprendizaje y proyectos
+      </a>
+
+      <a class="activo"
+         href="profesional-vocacional.html"
+         aria-current="page">
+        Profesional y vocacional
+      </a>
+
+    </div>
+  </nav>
+
+  <main class="contenedor">
+
+    <!-- ENCABEZADO -->
+
+    <header class="hero">
+
+      <span class="etiqueta">
+        Identidad profesional y vocación
+      </span>
+
+      <h1>Ética profesional</h1>
+
+      <p>
+        Analizo un dilema tecnológico relacionado con la privacidad
+        y la inteligencia artificial. Comparo dos posibles decisiones,
+        identifico sus consecuencias y argumento cuál considero
+        más responsable desde una perspectiva ética.
+      </p>
+
+      <p style="margin-top:12px">
+        Caso didáctico ficticio elaborado para esta actividad.
+      </p>
+
+    </header>
+
+    <!-- CASO -->
+
+    <section class="panel">
+
+      <h2>Caso multimedia: inteligencia artificial y privacidad</h2>
+
+      <div class="caso">
+
+        <div class="ilustracion" aria-hidden="true">
+          🔐🤖
+        </div>
+
+        <div>
+
+          <h3>Una IA que predice quién necesita apoyo académico</h3>
+
+          <p>
+            Una universidad quiere utilizar inteligencia artificial
+            para analizar asistencias, calificaciones y actividad
+            en su plataforma escolar con el objetivo de detectar
+            estudiantes que podrían necesitar ayuda.
+          </p>
+
+          <p>
+            Sin embargo, todavía no se han definido claramente
+            las autorizaciones para usar los datos, quién podrá
+            consultar los resultados ni cómo se corregirán
+            las predicciones equivocadas.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="tarjetas">
+
+        <article class="tarjeta">
+          <strong>Hechos</strong>
+          La institución propone analizar datos estudiantiles mediante
+          IA, pero faltan reglas claras de privacidad, acceso y revisión.
+        </article>
+
+        <article class="tarjeta">
+          <strong>Partes afectadas</strong>
+          Estudiantes, docentes, personal de orientación, autoridades
+          escolares y equipo técnico.
+        </article>
+
+        <article class="tarjeta">
+          <strong>Dilema ético</strong>
+          ¿Implementar la herramienta rápidamente o detenerla hasta
+          establecer garantías para proteger a las personas?
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- ÁRBOL DE DECISIONES -->
+
+    <section class="panel">
+
+      <h2>Árbol de decisiones éticas</h2>
+
+      <p>
+        Selecciona una alternativa para conocer sus posibles consecuencias
+        y evaluar sus implicaciones éticas.
+      </p>
+
+      <div class="inicio-arbol">
+
+        <h3>¿Qué debería hacer el equipo responsable?</h3>
+
+        <p>
+          El objetivo es ofrecer apoyo académico sin poner en riesgo
+          la privacidad ni perjudicar injustamente al alumnado.
+        </p>
+
+        <div class="opciones">
+
+          <button class="opcion" type="button" data-decision="a">
+
+            <strong>Opción A: implementar inmediatamente</strong>
+
+            Usar los datos disponibles y comenzar a generar alertas
+            sin esperar a definir todas las reglas.
+
+          </button>
+
+          <button class="opcion" type="button" data-decision="b">
+
+            <strong>Opción B: pausar y establecer garantías</strong>
+
+            Aclarar el propósito, limitar los datos, informar a las
+            personas afectadas y establecer revisión humana.
+
+          </button>
+
+        </div>
+
+      </div>
+
+      <div class="resultado" id="resultado" aria-live="polite">
+        Selecciona una alternativa para visualizar el análisis.
+      </div>
+
+      <div class="principios">
+
+        <span class="principio">Privacidad</span>
+        <span class="principio">Consentimiento informado</span>
+        <span class="principio">Transparencia</span>
+        <span class="principio">Justicia</span>
+        <span class="principio">Responsabilidad</span>
+        <span class="principio">Supervisión humana</span>
+
+      </div>
+
+    </section>
+
+    <!-- COMPARACIÓN -->
+
+    <section class="panel">
+
+      <h2>Cursos de acción y consecuencias</h2>
+
+      <div class="tarjetas">
+
+        <article class="tarjeta">
+
+          <strong>Curso A: implementar inmediatamente</strong>
+
+          <p>
+            <b>Posible beneficio:</b> generar alertas rápidamente
+            para intentar ofrecer apoyo académico.
+          </p>
+
+          <p>
+            <b>Consecuencias negativas:</b> uso poco transparente de
+            información, errores de predicción, sesgos y pérdida
+            de confianza de los estudiantes.
+          </p>
+
+        </article>
+
+        <article class="tarjeta">
+
+          <strong>Curso B: establecer garantías primero</strong>
+
+          <p>
+            <b>Posible beneficio:</b> definir límites, informar a
+            la comunidad, proteger los datos y revisar los resultados.
+          </p>
+
+          <p>
+            <b>Dificultad:</b> la implementación tardaría más y
+            requeriría consultas, pruebas y supervisión.
+          </p>
+
+        </article>
+
+        <article class="tarjeta">
+
+          <strong>Decisión argumentada</strong>
+
+          Considero más responsable la opción B porque prioriza la
+          privacidad, la transparencia, la justicia y la prevención
+          de posibles daños antes de utilizar una herramienta que
+          puede afectar a las personas.
+
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- REFLEXIÓN DE ÉTICA PROFESIONAL -->
+
+    <section class="panel">
+
+      <h2>Reflexión de cierre</h2>
+
+      <div class="reflexion">
+
+        Como futura profesionista, asumiría la responsabilidad de
+        desarrollar y utilizar tecnología considerando tanto su utilidad
+        como sus consecuencias para las personas. Antes de implementar
+        una solución con inteligencia artificial, revisaría qué datos
+        necesita, para qué se utilizarán, quién tendrá acceso y cómo
+        se pueden corregir los errores.
+
+        <br><br>
+
+        También promovería la transparencia, la protección de la
+        privacidad, la supervisión humana y la posibilidad de cuestionar
+        decisiones automatizadas. Considero que una solución tecnológica
+        debe aportar valor sin ignorar los derechos ni la dignidad
+        de quienes resultan afectados.
+
+      </div>
+
+    </section>
+
+    <!-- SEPARADOR -->
+
+    <div class="separador-actividad">
+      Identidad profesional y vocación
+    </div>
+
+    <!-- PLAN DE CARRERA PERSONALIZADO -->
+
+    <section class="panel">
+
+      <h2>Plan de carrera</h2>
+
+      <p>
+        Mi plan de carrera está enfocado en mi formación como Ingeniera
+        Informática. Actualmente estudio en el Tecnológico de Estudios
+        Superiores de San Felipe del Progreso y curso el quinto semestre
+        de la carrera. En esta etapa quiero fortalecer mis conocimientos,
+        mejorar mis habilidades de programación y comenzar a prepararme
+        para incorporarme al ámbito laboral.
+      </p>
+
+      <!-- DATOS ACADÉMICOS -->
+
+      <div class="datos-academicos">
+
+        <div class="dato">
+          <strong>Institución</strong>
+          Tecnológico de Estudios Superiores de San Felipe del Progreso
+        </div>
+
+        <div class="dato">
+          <strong>Carrera</strong>
+          Ingeniería Informática
+        </div>
+
+        <div class="dato">
+          <strong>Semestre actual</strong>
+          Quinto semestre
+        </div>
+
+        <div class="dato">
+          <strong>Meta profesional</strong>
+          Desarrollarme como profesionista en el área de desarrollo de software.
+        </div>
+
+      </div>
+
+      <!-- LO QUE VOY A REALIZAR -->
+
+      <div class="caso">
+
+        <div class="ilustracion" aria-hidden="true">
+          🎓💻
+        </div>
+
+        <div>
+
+          <h3>Lo que voy a realizar</h3>
+
+          <p>
+            Investigaré las competencias que solicitan las empresas
+            para dos perfiles profesionales relacionados con mi carrera:
+            desarrolladora de software y desarrolladora backend.
+            Después compararé esos requisitos con los conocimientos
+            que he adquirido durante mi formación académica para
+            identificar qué necesito mejorar.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- PERFIL PROFESIONAL 1 -->
+
+      <div style="margin-top:25px;">
+
+        <h3>Perfil profesional 1: Desarrolladora de software</h3>
+
+        <p>
+          Este perfil se relaciona con el diseño, desarrollo,
+          programación y mantenimiento de aplicaciones y sistemas.
+          Me interesa porque durante mi formación he trabajado
+          con programación Java, desarrollo web y proyectos
+          académicos que me han permitido conocer cómo se construyen
+          soluciones tecnológicas.
+        </p>
+
+        <div class="tarjetas">
+
+          <article class="tarjeta">
+            <strong>Programación</strong>
+            Manejo de lenguajes como Java y Python para desarrollar
+            programas y resolver problemas.
+          </article>
+
+          <article class="tarjeta">
+            <strong>Desarrollo web</strong>
+            Conocimientos de HTML, CSS y JavaScript para crear
+            páginas y aplicaciones web.
+          </article>
+
+          <article class="tarjeta">
+            <strong>Bases de datos</strong>
+            Diseño de bases de datos, consultas SQL y conexión
+            de aplicaciones con información almacenada.
+          </article>
+
+        </div>
+
+      </div>
+
+      <!-- PERFIL PROFESIONAL 2 -->
+
+      <div style="margin-top:28px;">
+
+        <h3>Perfil profesional 2: Desarrolladora backend</h3>
+
+        <p>
+          Este perfil se enfoca en la parte interna de las aplicaciones,
+          donde se procesa la información, se conectan las bases de datos
+          y se desarrollan servicios para que los sistemas funcionen
+          correctamente. Me interesa porque he comenzado a trabajar
+          con Python, FastAPI y bases de datos en mis proyectos académicos.
+        </p>
+
+        <div class="tarjetas">
+
+          <article class="tarjeta">
+            <strong>Python</strong>
+            Fortalecer la programación, el manejo de funciones,
+            estructuras de datos y organización del código.
+          </article>
+
+          <article class="tarjeta">
+            <strong>API y FastAPI</strong>
+            Aprender a crear servicios que permitan la comunicación
+            entre aplicaciones y bases de datos.
+          </article>
+
+          <article class="tarjeta">
+            <strong>Bases de datos</strong>
+            Mejorar el manejo de SQL, consultas, relaciones
+            y conexión con aplicaciones backend.
+          </article>
+
+        </div>
+
+      </div>
+
+      <!-- COMPARACIÓN DE HABILIDADES -->
+
+      <div style="margin-top:28px;">
+
+        <h3>Mapa de brechas de habilidades</h3>
+
+        <p>
+          En esta comparación identifico los conocimientos que he
+          comenzado a desarrollar durante mi formación y las habilidades
+          que necesito seguir fortaleciendo para acercarme a los perfiles
+          profesionales que me interesan.
+        </p>
+
+        <div class="tabla-contenedor">
+
+          <table>
+
+            <thead>
+              <tr>
+                <th>Competencia</th>
+                <th>Mi situación actual</th>
+                <th>Lo que necesito fortalecer</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              <tr>
+                <td>Java</td>
+                <td>He realizado ejercicios y proyectos académicos.</td>
+                <td>Mejorar la programación orientada a objetos y desarrollar aplicaciones más completas.</td>
+              </tr>
+
+              <tr>
+                <td>Python</td>
+                <td>He trabajado con programas y proyectos académicos.</td>
+                <td>Mejorar la lógica, las funciones y la organización del código.</td>
+              </tr>
+
+              <tr>
+                <td>Desarrollo web</td>
+                <td>He trabajado con HTML, CSS y diseño de páginas.</td>
+                <td>Fortalecer JavaScript y crear sitios web más completos y adaptables.</td>
+              </tr>
+
+              <tr>
+                <td>Bases de datos</td>
+                <td>He realizado prácticas con bases de datos y consultas.</td>
+                <td>Mejorar SQL, relaciones y conexión con aplicaciones.</td>
+              </tr>
+
+              <tr>
+                <td>FastAPI y backend</td>
+                <td>He comenzado a desarrollar proyectos utilizando FastAPI.</td>
+                <td>Aprender a crear API, validar información y manejar operaciones CRUD.</td>
+              </tr>
+
+              <tr>
+                <td>Trabajo en proyectos</td>
+                <td>He participado en proyectos académicos como Tecnobike y la lotería Mazahua digital.</td>
+                <td>Mejorar la documentación, organización y trabajo en equipo.</td>
+              </tr>
+
+              <tr>
+                <td>Inglés técnico</td>
+                <td>Necesito continuar desarrollando esta habilidad.</td>
+                <td>Comprender documentación, tutoriales y términos de programación en inglés.</td>
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </div>
+
+      <!-- PLAN DE FORMACIÓN -->
+
+      <div style="margin-top:28px;">
+
+        <h3>Mi plan de formación de seis meses</h3>
+
+        <p>
+          Para avanzar en mi preparación profesional, establezco
+          una ruta de aprendizaje de seis meses. Cada etapa tendrá
+          un objetivo que me permitirá mejorar mis conocimientos
+          y aplicarlos en proyectos propios.
+        </p>
+
+        <div class="mes">
+
+          <strong>Mes 1: Fortalecimiento de programación</strong>
+
+          Repasar Java y Python, practicar lógica de programación,
+          funciones y programación orientada a objetos.
+
+          <br>
+          <b>Meta:</b> desarrollar pequeños programas que resuelvan
+          problemas cotidianos.
+
+        </div>
+
+        <div class="mes">
+
+          <strong>Mes 2: Desarrollo web</strong>
+
+          Mejorar mis conocimientos de HTML, CSS y JavaScript
+          mediante la creación de páginas web responsivas.
+
+          <br>
+          <b>Meta:</b> crear una página web funcional y adaptable
+          a diferentes dispositivos.
+
+        </div>
+
+        <div class="mes">
+
+          <strong>Mes 3: Bases de datos</strong>
+
+          Practicar SQL, consultas, relaciones entre tablas
+          y conexión de bases de datos con programas.
+
+          <br>
+          <b>Meta:</b> construir una base de datos y conectarla
+          con una aplicación.
+
+        </div>
+
+        <div class="mes">
+
+          <strong>Mes 4: Desarrollo backend</strong>
+
+          Continuar aprendiendo Python y FastAPI, crear rutas,
+          realizar operaciones CRUD y validar información.
+
+          <br>
+          <b>Meta:</b> desarrollar una API que permita consultar,
+          registrar, modificar y eliminar información.
+
+        </div>
+
+        <div class="mes">
+
+          <strong>Mes 5: Proyecto integrador</strong>
+
+          Aplicar los conocimientos adquiridos para desarrollar
+          un proyecto que integre programación, bases de datos
+          y desarrollo web o backend.
+
+          <br>
+          <b>Meta:</b> contar con un proyecto funcional y documentado
+          que pueda agregar a mi portafolio académico.
+
+        </div>
+
+        <div class="mes">
+
+          <strong>Mes 6: Preparación profesional</strong>
+
+          Organizar mis proyectos, mejorar mi currículum,
+          practicar entrevistas y revisar documentación técnica
+          en inglés.
+
+          <br>
+          <b>Meta:</b> tener un portafolio con evidencias de mis
+          conocimientos y una mejor preparación para futuras
+          oportunidades profesionales.
+
+        </div>
+
+      </div>
+
+      <!-- LO QUE PUBLICARÉ -->
+
+     
+
+      <!-- FUENTES DE CONSULTA -->
+
+      <div style="margin-top:28px;">
+
+        <h3>Fuentes de consulta</h3>
+
+        <p>
+          Para investigar los perfiles profesionales y conocer
+          las competencias que se solicitan en el ámbito laboral,
+          consultaré plataformas de empleo y documentación oficial
+          de las tecnologías que me interesa aprender.
+        </p>
+
+        <ul>
+
+          <li>
+            <a href="https://www.occ.com.mx/"
+               target="_blank"
+               rel="noopener noreferrer">
+              OCC Mundial
+            </a>
+            – Ofertas de empleo y requisitos para puestos de informática.
+          </li>
+
+          <li>
+            <a href="https://www.linkedin.com/jobs/"
+               target="_blank"
+               rel="noopener noreferrer">
+              LinkedIn Empleos
+            </a>
+            – Vacantes y competencias solicitadas para desarrolladores.
+          </li>
+
+          <li>
+            <a href="https://docs.python.org/es/3/"
+               target="_blank"
+               rel="noopener noreferrer">
+              Documentación oficial de Python
+            </a>
+            – Aprendizaje y consulta del lenguaje Python.
+          </li>
+
+          <li>
+            <a href="https://fastapi.tiangolo.com/es/"
+               target="_blank"
+               rel="noopener noreferrer">
+              Documentación de FastAPI
+            </a>
+            – Desarrollo de aplicaciones backend y API.
+          </li>
+
+          <li>
+            <a href="https://developer.mozilla.org/es/"
+               target="_blank"
+               rel="noopener noreferrer">
+              MDN Web Docs
+            </a>
+            – Recursos para aprender desarrollo web.
+          </li>
+
+        </ul>
+
+      </div>
+
+      <!-- VERIFICACIÓN -->
+
+   
+
+      <!-- CRITERIOS DE EVALUACIÓN -->
+
+    
+
+      <!-- REFLEXIÓN PERSONAL -->
+
+      <div class="reflexion" style="margin-top:25px;">
+
+        <h3>Reflexión de cierre</h3>
+
+        <p>
+          ¿Qué competencia necesito priorizar y por qué?
+        </p>
+
+        <p>
+          Considero que una de las competencias que necesito priorizar
+          es el desarrollo backend, especialmente el manejo de Python,
+          FastAPI y bases de datos, porque son conocimientos que me
+          permitirán crear aplicaciones más completas y funcionales.
+          Aunque ya he tenido acercamiento a estas tecnologías mediante
+          mis proyectos académicos, todavía necesito practicar y
+          fortalecer mis conocimientos.
+        </p>
+
+        <p>
+          Actualmente, al cursar quinto semestre de Ingeniería Informática,
+          considero que estoy en una etapa importante para prepararme
+          profesionalmente. Mi objetivo es aprovechar los siguientes
+          semestres para aprender nuevas herramientas, mejorar mis
+          habilidades de programación y desarrollar proyectos que
+          demuestren lo que soy capaz de realizar.
+        </p>
+
+        <p>
+          Quiero terminar mi carrera con conocimientos sólidos,
+          experiencia adquirida mediante proyectos y la confianza
+          necesaria para enfrentar los retos del mundo laboral.
+        </p>
+
+      </div>
+
+      <!-- CIERRE DE ACTIVIDAD -->
+
+
+    </section>
+
+    <!-- NAVEGACIÓN -->
+
+    <div class="botones">
+
+      <a class="boton" href="index.html">
+        ← Regresar al inicio
+      </a>
+
+      <button class="boton" type="button" onclick="window.print()">
+        Imprimir / guardar como PDF
+      </button>
+
+      <a class="boton" href="mis-proyectos.html">
+        ← Aprendizaje y proyectos
+      </a>
+
+    </div>
+
+  </main>
+
+  <footer class="pie">
+
+    Evidencia publicada en mi sitio web · Identidad profesional y vocación
+
+  </footer>
+
+  <!-- FUNCIONALIDAD DEL ÁRBOL DE DECISIONES -->
+
+  <script>
+
+    const resultado = document.getElementById("resultado");
+
+    const decisiones = {
+
+      a: `
+        <h3>Consecuencias de la opción A</h3>
+
+        <p>
+          <strong>Beneficio posible:</strong>
+          el sistema podría generar alertas rápidamente y facilitar
+          el inicio de conversaciones de apoyo.
+        </p>
+
+        <p>
+          <strong>Riesgos:</strong>
+          los estudiantes podrían desconocer el uso de sus datos;
+          una predicción incorrecta podría etiquetar injustamente
+          a alguien; los sesgos podrían perjudicar a ciertos grupos.
+        </p>
+
+        <p>
+          <strong>Valoración ética:</strong>
+          no es recomendable implementar el sistema mientras no
+          existan reglas claras, transparencia y revisión humana.
+        </p>
+      `,
+
+      b: `
+        <h3>Consecuencias de la opción B</h3>
+
+        <p>
+          <strong>Beneficio posible:</strong>
+          la comunidad puede conocer el propósito, establecer
+          límites de uso, reducir los datos recopilados y definir
+          cómo corregir errores.
+        </p>
+
+        <p>
+          <strong>Dificultad:</strong>
+          el sistema tardaría más en ponerse en marcha y requeriría
+          consultas, pruebas y supervisión.
+        </p>
+
+        <p>
+          <strong>Valoración ética:</strong>
+          es la alternativa más responsable porque busca prevenir
+          daños y permite evaluar la utilidad del sistema con garantías.
+        </p>
+      `
+
+    };
+
+    document.querySelectorAll("[data-decision]").forEach((boton) => {
+
+      boton.addEventListener("click", () => {
+
+        resultado.innerHTML = decisiones[boton.dataset.decision];
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
